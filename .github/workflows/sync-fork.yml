@@ -3,7 +3,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "0 2 * * *"
+    - cron: "10 1 * * 1-5" # 09:10 a.m. China; Workday only
+
 
 jobs:
   sync-fork:
@@ -11,11 +12,8 @@ jobs:
     strategy:
       matrix:
         repo:
-        - wzshiming/kubernetes
-        - wzshiming/containerd
-        - wzshiming/runc
-        - wzshiming/istio
-        - wzshiming/kwok
+        - pacoxu/kubernetes
+        - pacoxu/containerd
     steps:
     - name: Sync Fork
       uses: wzshiming/action-sync-fork@v1
